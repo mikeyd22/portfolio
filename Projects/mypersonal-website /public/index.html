@@ -80,6 +80,18 @@ I'm eager to collaborate on innovative projects, contribute to groundbreaking re
 
   </head>
   <body>
+    <!-- Menu bar (top right) -->
+    <nav class="nav-menu" aria-label="Main navigation">
+      <button type="button" class="nav-menu__toggle" id="nav-menu-toggle" aria-label="Open menu" aria-expanded="false">
+        <img src="./assets/menu_bar_icon.png" alt="" class="nav-menu__icon" width="32" height="32" />
+      </button>
+      <div class="nav-menu__dropdown" id="nav-menu-dropdown" aria-hidden="true">
+        <a href="#about" class="nav-menu__link">About me</a>
+        <a href="#projects" class="nav-menu__link">Projects</a>
+        <a href="#contact" class="nav-menu__link">Contact</a>
+      </div>
+    </nav>
+
     <!-- Hero Section -->
     <div id="hero">
       <section class="container">
@@ -93,8 +105,8 @@ I'm eager to collaborate on innovative projects, contribute to groundbreaking re
         </p>
       </section>
       <a href="#about" class="scroll-down-link" aria-label="scroll-down">
-        <div class="scroll-down"></div
-      ></a>
+        <div class="scroll-down"></div>
+      </a>
     </div>
     <!-- /END Hero Section -->
 
@@ -354,7 +366,33 @@ I'm eager to collaborate on innovative projects, contribute to groundbreaking re
     <!-- END Footer Section -->
 
     <script>
-      document.getElementById("year").textContent = new Date().getFullYear()
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <script>
+      (function () {
+        var toggle = document.getElementById("nav-menu-toggle");
+        var dropdown = document.getElementById("nav-menu-dropdown");
+        if (!toggle || !dropdown) return;
+        function openMenu() {
+          dropdown.classList.add("is-open");
+          dropdown.setAttribute("aria-hidden", "false");
+          toggle.setAttribute("aria-expanded", "true");
+          toggle.setAttribute("aria-label", "Close menu");
+        }
+        function closeMenu() {
+          dropdown.classList.remove("is-open");
+          dropdown.setAttribute("aria-hidden", "true");
+          toggle.setAttribute("aria-expanded", "false");
+          toggle.setAttribute("aria-label", "Open menu");
+        }
+        toggle.addEventListener("click", function () {
+          if (dropdown.classList.contains("is-open")) closeMenu();
+          else openMenu();
+        });
+        dropdown.querySelectorAll(".nav-menu__link").forEach(function (link) {
+          link.addEventListener("click", closeMenu);
+        });
+      })();
     </script>
     <script src="./javascript/vanilla-tilt.min.js"></script>
     <script type="text/javascript" src="./javascript/valtilt.js"></script>
