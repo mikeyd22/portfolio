@@ -1,0 +1,425 @@
+/* ============================================
+   VALENTINE'S — SNOWBOARDING THEME
+   ============================================ */
+
+:root {
+  --sky-top: #3d1f2e;
+  --sky-mid: #6b2d4a;
+  --sky-bottom: #9e4d6a;
+  --snow-white: #fdf2f4;
+  --snow-shadow: #e8d4d8;
+  --accent-warm: #c73e54;
+  --accent-pink: #e84a6f;
+  --accent-gold: #d4a574;
+  --text-dark: #2d1f26;
+  --text-soft: #5c3d48;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 40%, var(--sky-bottom) 70%, var(--snow-shadow) 100%);
+  color: var(--text-dark);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body.landing {
+  min-height: 100vh;
+}
+
+/* ---- Falling snow ---- */
+.snow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.snowflake {
+  position: absolute;
+  top: -10px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  text-shadow: 0 0 5px rgba(255,255,255,0.5);
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh) translateX(var(--drift));
+  }
+}
+
+/* ---- Mount Fuji (Japan) — landing ---- */
+.fuji-wrap {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 55%;
+  z-index: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.fuji {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(85vw, 520px);
+  height: 50vh;
+  background: linear-gradient(165deg,
+    transparent 0%,
+    rgba(90, 70, 80, 0.5) 25%,
+    #5a4552 45%,
+    #4a3845 70%,
+    #3d2d38 100%
+  );
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  animation: fujiGlow 10s ease-in-out infinite alternate;
+}
+
+.fuji-snow {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(50vw, 300px);
+  height: 22vh;
+  background: linear-gradient(180deg,
+    rgba(255,250,252,0.98) 0%,
+    rgba(252,242,246,0.95) 50%,
+    rgba(235,218,225,0.9) 100%
+  );
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  animation: fujiGlow 10s ease-in-out infinite alternate;
+  animation-delay: -1s;
+}
+
+@keyframes fujiGlow {
+  from { opacity: 0.92; filter: brightness(0.95); }
+  to { opacity: 1; filter: brightness(1.05); }
+}
+
+/* ---- Generic mountain layer (behind Fuji) ---- */
+.mountains {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 45%;
+  z-index: -1;
+  background: linear-gradient(180deg, transparent 0%, var(--snow-shadow) 15%, var(--snow-white) 35%);
+  clip-path: polygon(
+    0% 100%,
+    0% 70%,
+    15% 55%,
+    25% 65%,
+    40% 45%,
+    55% 60%,
+    70% 40%,
+    85% 55%,
+    100% 50%,
+    100% 100%
+  );
+  animation: mountainGlow 8s ease-in-out infinite alternate;
+}
+
+@keyframes mountainGlow {
+  from { opacity: 0.95; }
+  to { opacity: 1; }
+}
+
+/* ---- Snowboarder follows mouse ---- */
+.snowboarder-follow {
+  position: fixed;
+  width: 135px;
+  height: auto;
+  pointer-events: none;
+  z-index: 100;
+  transform: translate(-50%, -50%);
+  transition: none;
+  display: block;
+  background: transparent !important;
+}
+
+/* ============================================
+   LANDING PAGE
+   ============================================ */
+
+.landing-content {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.intro-text {
+  max-width: 420px;
+  margin-bottom: 2.5rem;
+}
+
+.intro-text .line {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.975rem;
+  font-weight: 600;
+  line-height: 2;
+  color: var(--snow-white);
+  text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+  opacity: 0;
+  animation: fadeInLine 1s ease forwards;
+}
+
+.intro-text .line-1 { animation-delay: 0.5s; }
+.intro-text .line-2 { animation-delay: 1s; }
+.intro-text .line-3 { animation-delay: 1.5s; color: #ffb3c1; font-size: 2.425rem; text-shadow: 0 0 20px rgba(255,180,195,0.5); }
+
+@keyframes fadeInLine {
+  to { opacity: 1; }
+}
+
+.btn-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.click-me {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 1px;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.2);
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.enter-btn {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--snow-white);
+  background: var(--accent-warm);
+  text-decoration: none;
+  padding: 0.9rem 1.8rem;
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 4px 20px rgba(199, 62, 84, 0.35);
+  transition: all 0.3s ease;
+}
+
+.enter-btn:hover {
+  background: var(--accent-pink);
+  color: var(--snow-white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(232, 74, 111, 0.5);
+}
+
+/* ============================================
+   LOVE PAGE
+   ============================================ */
+
+.love-page {
+  background: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 25%, var(--sky-bottom) 50%, var(--snow-shadow) 80%, var(--snow-white) 100%);
+  background-attachment: fixed;
+}
+
+.love-page main {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.page-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--snow-white);
+  text-shadow: 0 2px 24px rgba(0,0,0,0.25);
+  margin-bottom: 3rem;
+}
+
+.section {
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  opacity: 0;
+  transform: translateY(24px);
+  animation: sectionIn 0.7s ease forwards;
+}
+
+.section:nth-of-type(1) { animation-delay: 0.1s; }
+.section:nth-of-type(2) { animation-delay: 0.2s; }
+.section:nth-of-type(3) { animation-delay: 0.3s; }
+.section:nth-of-type(4) { animation-delay: 0.4s; }
+.section:nth-of-type(5) { animation-delay: 0.5s; }
+.section:nth-of-type(6) { animation-delay: 0.6s; }
+
+@keyframes sectionIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--accent-warm);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+.section p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--text-soft);
+  margin-bottom: 0.75rem;
+}
+
+.section p.highlight {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--accent-warm);
+  font-size: 1.15rem;
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+.placeholder-img {
+  width: 100%;
+  max-width: 360px;
+  margin: 1.25rem auto;
+  display: flex;
+  aspect-ratio: 4/3;
+  background: linear-gradient(145deg, var(--snow-shadow) 0%, #d4b8c0 100%);
+  border-radius: 12px;
+  color: var(--text-soft);
+  font-size: 0.7rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  line-height: 1.6;
+  box-shadow: inset 0 2px 8px rgba(255,255,255,0.5);
+}
+
+.placeholder-img.small {
+  max-width: 260px;
+  aspect-ratio: 1;
+}
+
+section img.placeholder-img:not(.gallery) {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  margin: 1.25rem auto;
+  background: none;
+  padding: 0;
+}
+
+.section-end .valentines-pic {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.gallery-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.placeholder-img.gallery {
+  flex: 1 1 160px;
+  max-width: 180px;
+  aspect-ratio: 1;
+}
+
+.gallery-row img.placeholder-img.gallery {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  padding: 0;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--snow-white);
+  text-decoration: none;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid rgba(255,255,255,0.5);
+  transition: all 0.3s ease;
+}
+
+.back-link:hover {
+  border-bottom-color: var(--snow-white);
+  color: #ffb3c1;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .snowboarder-follow {
+    width: 110px;
+  }
+  .intro-text .line {
+    font-size: 1.6rem;
+  }
+  .intro-text .line-3 { font-size: 2rem; }
+  .page-title {
+    font-size: 1.25rem;
+  }
+  .section {
+    padding: 1.25rem;
+  }
+}
