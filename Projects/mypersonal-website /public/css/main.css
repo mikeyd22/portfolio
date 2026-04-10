@@ -181,7 +181,6 @@ section .row span { margin-top: 2rem; }
   align-items: center;
   background: #080c14;
   position: relative;
-  overflow: hidden;
   padding: 0 5.6rem;
   animation: fadeIn 800ms ease forwards;
 }
@@ -271,7 +270,7 @@ section .row span { margin-top: 2rem; }
   left: 50%;
   bottom: 24px;
   transform: translateX(-50%);
-  z-index: 2;
+  z-index: 10;
 }
 
 .scroll-down {
