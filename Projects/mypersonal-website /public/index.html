@@ -1,69 +1,40 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
 
-    <!-- Title: add your Portfolio websites's title here -->
     <title>Michael Da</title>
 
-    <!-- Add some coding keywords below, Ex: (javascript, yourusername, etc) -->
-    <meta name="keywords" content="Michael Da, Michael, GIS" />
+    <meta name="keywords" content="Michael Da, Michael, GIS, Geomatics, Remote Sensing, Spatial Analysis" />
+    <meta name="description" content="Portfolio of Michael Da, a Geomatics student at the University of Waterloo exploring GIS, remote sensing, and AI applications." />
 
-    <!-- Improve your SEO by adding a small descrption of you -->
-    <meta name="Hi, I'm Michael, a student at the University of Waterloo pursuing a degree in Geomatics. I have a deep passion for computer science and mathematics, which drive my interest in the dynamic fields of remote sensing and ai.
-
-Through my studies, I am exploring how geospatial data and cutting-edge technologies intersect to solve real-world challenges. I'm particularly fascinated by how AI enhances data analysis in applications such as satellite imaging, self-driving cars, and environmental monitoring.
-
-I'm eager to collaborate on innovative projects, contribute to groundbreaking research, and continuously expand my skill set in programming, geospatial technologies, and AI-driven solutions." content="Michael Da" />
-
-    <!-- Add a your png Logo to the assets folder and change the href attr accordingly  -->
     <link rel="icon" type="image/png" href="./assets/personal_logo.png" />
+    <meta name="theme-color" content="#14b8a6" />
 
-    <!-- Add your primary-theme color for the value of content -->
-    <meta name="theme-color" content="#36d1dc" />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <!-- Fill content with the URL of this portfolio you'll host -->
-    <meta property="og:url" content="https://devfolio.js.org/" />
-    <!-- Fill content with the title of your portfolio(Recommended to use what you put in <title> tag) -->
-    <meta property="og:title" content="Michael Da" />
-    <!-- Give a short description that'll show up when you/someone shares your portfolio on different platform -->
+    <!-- Open Graph -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content="https://personal-website-7c1da.web.app/" />
+    <meta property="og:title"       content="Michael Da" />
     <meta property="og:description" content="Portfolio of Michael Da, a Geomatics student at the University of Waterloo exploring GIS, remote sensing, and AI applications." />
-    <!-- Add a thumbnail image in assets folder and fill the content attr with URL to that thumbnail 
-      so that a thumbnail image of your portfolio is shown while shared on other platform -->
-    <meta
-      property="og:image"
-      content=".assets/Michael-Da-thumbail.png"
-    />
+    <meta property="og:image"       content="./assets/Michael-Da-thumbail.png" />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <!-- Again fill content attr with the URL of this portfolio you'll host -->
-    <meta property="twitter:url" content="https://devfolio.js.org" />
-    <!-- Recommended to use the same text used within <title> element -->
-    <meta property="twitter:title" content="Michael Da" />
-    <!-- short description that shows up while your portfolio is shared -->
-    <meta
-      property="twitter:description"
-      content="Portfolio of Michael Da, a Geomatics student at the University of Waterloo exploring GIS, remote sensing, and AI applications."
-    />
-    <!-- Fill content with the URL to the thumbnail image that you'll put in the assets folder -->
-    <meta
-      property="twitter:image"
-      content=".assets/Michael-Da-thumbail"
-    />
+    <meta property="twitter:card"        content="summary_large_image" />
+    <meta property="twitter:url"         content="https://personal-website-7c1da.web.app/" />
+    <meta property="twitter:title"       content="Michael Da" />
+    <meta property="twitter:description" content="Portfolio of Michael Da, a Geomatics student at the University of Waterloo exploring GIS, remote sensing, and AI applications." />
+    <meta property="twitter:image"       content="./assets/Michael-Da-thumbail.png" />
 
-    <!-- link tags -->
+    <!-- Styles -->
     <link rel="preload" as="style" href="./css/main.css" />
     <link rel="stylesheet" href="./css/main.css" />
 
-    <!-- FontAwesome Icons link -->
+    <!-- FontAwesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
@@ -71,40 +42,41 @@ I'm eager to collaborate on innovative projects, contribute to groundbreaking re
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <script defer src="./javascript/scrollreveal.min.js"></script>
-    <script
-      defer
-      type="text/javascript"
-      src="./javascript/scrollveal.js"
-    ></script>
 
+    <script defer src="./javascript/scrollreveal.min.js"></script>
+    <script defer src="./javascript/scrollveal.js"></script>
   </head>
   <body>
-    <!-- Menu bar (top right) -->
+
+    <!-- Nav Menu (top right) -->
     <nav class="nav-menu" aria-label="Main navigation">
       <button type="button" class="nav-menu__toggle" id="nav-menu-toggle" aria-label="Open menu" aria-expanded="false">
-        <img src="./assets/menu_bar_icon.png" alt="" class="nav-menu__icon" width="32" height="32" />
+        <img src="./assets/menu_bar_icon.png" alt="" class="nav-menu__icon" width="28" height="28" />
       </button>
       <div class="nav-menu__dropdown" id="nav-menu-dropdown" aria-hidden="true">
-        <a href="#about" class="nav-menu__link">About me</a>
+        <a href="#about"   class="nav-menu__link">About me</a>
         <a href="#projects" class="nav-menu__link">Projects</a>
-        <a href="#contact" class="nav-menu__link">Contact</a>
+        <a href="#contact"  class="nav-menu__link">Contact</a>
       </div>
     </nav>
 
     <!-- Hero Section -->
     <div id="hero">
-      <section class="container">
+      <canvas id="particle-canvas"></canvas>
+      <section class="container hero-content">
+        <p class="hero-greeting">Hello, I'm</p>
         <h1 class="hero-title">
-          Hi, my name is <span class="text-color-main name">Michael Da</span>
-          <br />
-          Welcome to my personal website!
+          <span class="text-color-main">Michael Da</span>
         </h1>
-        <p class="hero-cta">
-          <a class="cta-btn cta-btn--hero" href="#about">About me</a>
+        <p class="hero-subtitle">
+          <span id="hero-typewriter"></span>
         </p>
+        <div class="hero-cta">
+          <a class="cta-btn cta-btn--hero" href="#about">About me</a>
+          <a class="cta-btn cta-btn--resume" href="#projects">View Projects</a>
+        </div>
       </section>
-      <a href="#about" class="scroll-down-link" aria-label="scroll-down">
+      <a href="#about" class="scroll-down-link" aria-label="scroll down">
         <div class="scroll-down"></div>
       </a>
     </div>
@@ -126,17 +98,18 @@ I'm eager to collaborate on innovative projects, contribute to groundbreaking re
           </div>
           <div class="about-wrapper__info">
             <p class="about-wrapper__info-text">
-              Hi, I'm Michael, a student at the University of Waterloo pursuing a degree in Geomatics. 
-              I have a deep passion for computer science and mathematics, which drive my interest in the dynamic 
-              fields of remote sensing and ai.
+              Hi, I'm Michael — a student at the University of Waterloo pursuing a degree in Geomatics.
+              I have a deep passion for computer science and mathematics, which drive my interest in the
+              dynamic fields of remote sensing and AI.
             </p>
             <p class="about-wrapper__info-text">
-              Through my studies, I am exploring how geospatial data and cutting-edge technologies intersect to solve real-world challenges.
-              I'm particularly fascinated by how AI enhances data analysis in applications such as satellite imaging, self-driving cars, and environmental monitoring.
+              Through my studies, I explore how geospatial data and cutting-edge technologies intersect
+              to solve real-world challenges. I'm particularly fascinated by how AI enhances data analysis
+              in satellite imaging, autonomous vehicles, and environmental monitoring.
             </p>
             <span class="about-wrapper__cta">
               <a href="./assets/MichaelDaResume.pdf" class="cta-btn cta-btn--resume" target="_blank" rel="noopener noreferrer">
-                     View Resume
+                View Resume
               </a>
             </span>
           </div>
@@ -145,196 +118,145 @@ I'm eager to collaborate on innovative projects, contribute to groundbreaking re
     </section>
     <!-- /END About Section -->
 
-    <!--Projects Section-->
+    <!-- Projects Section -->
     <section id="projects">
       <div class="container">
-        <div class="project-wrapper">
-          <h2 class="section-title dark-blue-text">Projects</h2>
+        <h2 class="section-title dark-blue-text">Projects</h2>
 
-          <!-- Each .row is a project -->
-          <article class="row">
-            <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">Plug Near</h3>
-              <p class="project-wrapper__text-info">
-                As electric vehicles become more common, easily finding a charging station is essential. 
-                I developed PlugNear, a full-stack web application that provides a seamless solution for EV drivers.
+        <div class="project-cards">
 
-
-              </p>
-              <div class="project-wrapper__text-btns">
+          <!-- PlugNear -->
+          <article class="project-card">
+            <div class="project-card__inner">
+              <img
+                src="./assets/plugnear_thumbnail.png"
+                class="project-card__img"
+                alt="PlugNear — EV charging finder app"
+              />
+              <div class="project-card__overlay">
+                <h3 class="project-card__overlay-title">Plug Near</h3>
+                <p class="project-card__overlay-desc">
+                  Full-stack web app helping EV drivers find charging stations seamlessly across Canada.
+                </p>
                 <a
                   href="https://plug-nears.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="cta-btn cta-btn--hero cta-btn--projects"
-                  >Check it out!</a
-                >
+                  class="cta-btn cta-btn--projects"
+                >Check it out</a>
               </div>
             </div>
-
-            <div class="project-wrapper__image">
-              <a href="https://plug-nears.vercel.app/" target="_blank" rel="noopener noreferrer">
-                <div class="thumbnail rounded">
-                  <img
-                    src="./assets/plugnear_thumbnail.png"
-                    class="img-fluid"
-                    alt="Project Image"
-                    width="1366"
-                    height="767"
-                  />
-                </div>
-              </a>
+            <div class="project-card__footer">
+              <h3 class="project-card__title">Plug Near</h3>
+              <span class="project-card__tag">Full-Stack &middot; Web App</span>
             </div>
           </article>
-          <!-- /END Project -->
 
-
-          <!-- Each .row is a project -->
-          <article class="row">
-            <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">Terrain Map</h3>
-              <p class="project-wrapper__text-info">
-                This is a terrain map of the Georgian Bay coastline, showcasing the
-                 land's elevation and features. Using shaded relief, contour lines, 
-                 and different colors, the map provides a clear visual of the hilly landscape,
-                  valleys, and waterways. The map also highlights local roads and bodies of water, 
-                  giving a complete picture of the geographic area for easy interpretation by any audience.
-              </p>
-              <div class="project-wrapper__text-btns">
+          <!-- Terrain Map -->
+          <article class="project-card">
+            <div class="project-card__inner">
+              <img
+                src="./assets/map3.png"
+                class="project-card__img"
+                alt="Georgian Bay terrain map"
+              />
+              <div class="project-card__overlay">
+                <h3 class="project-card__overlay-title">Terrain Map</h3>
+                <p class="project-card__overlay-desc">
+                  Shaded relief map of the Georgian Bay coastline with contour lines, elevation data, roads, and waterways.
+                </p>
                 <a
                   href="./assets/map3.png"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="cta-btn cta-btn--hero cta-btn--projects"
-                  >Download</a
-                >
-                
+                  class="cta-btn cta-btn--projects"
+                >Download</a>
               </div>
             </div>
-
-            <div class="project-wrapper__image">
-              <a href="./assets/map3.png" target="_blank" rel="noopener noreferrer">
-                <div class="thumbnail rounded">
-                  <img
-                    src="./assets/map3.png"
-                    class="img-fluid"
-                    alt="Project Image"
-                    width="1366"
-                    height="767"
-                  />
-                </div>
-              </a>
+            <div class="project-card__footer">
+              <h3 class="project-card__title">Terrain Map</h3>
+              <span class="project-card__tag">GIS &middot; Cartography</span>
             </div>
           </article>
-          <!-- /END Project -->
 
-           <!-- Each .row is a project -->
-          <article class="row">
-            <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">Remote Sensing Outreach</h3>
-              <p class="project-wrapper__text-info">
-                This is a outreach on remote sensing for undergrad students. This outreach has gained over 100+ followers and 3000+ impressions on Instagram. 
-              </p>
-              <div class="project-wrapper__text-btns">
+          <!-- Remote Sensing Outreach -->
+          <article class="project-card">
+            <div class="project-card__inner">
+              <img
+                src="./assets/pw_thumbnail.png"
+                class="project-card__img"
+                alt="Remote Sensing Outreach Instagram page"
+              />
+              <div class="project-card__overlay">
+                <h3 class="project-card__overlay-title">Remote Sensing Outreach</h3>
+                <p class="project-card__overlay-desc">
+                  Instagram outreach for undergrads with 100+ followers and 3,000+ impressions, making remote sensing accessible.
+                </p>
                 <a
                   href="https://www.instagram.com/uwremotesensing/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="cta-btn cta-btn--hero cta-btn--projects"
-                  >Check it out here</a
-                >
-                
+                  class="cta-btn cta-btn--projects"
+                >Check it out</a>
               </div>
             </div>
-
-            <div class="project-wrapper__image">
-              <a href="https://www.instagram.com/uwremotesensing/" target="_blank" rel="noopener noreferrer">
-                <div class="thumbnail rounded">
-                  <img
-                    src="./assets/pw_thumbnail.png"
-                    class="img-fluid"
-                    alt="Project Image"
-                    width="1366"
-                    height="767"
-                  />
-                </div>
-              </a>
+            <div class="project-card__footer">
+              <h3 class="project-card__title">Remote Sensing Outreach</h3>
+              <span class="project-card__tag">Remote Sensing &middot; Outreach</span>
             </div>
           </article>
-          <!-- /END Project -->
-
-          
 
         </div>
       </div>
     </section>
-    <!-- End Projects Section -->
+    <!-- /END Projects Section -->
 
     <!-- Contact Section -->
     <section id="contact">
       <div class="container">
         <h2 class="section-title">Contact</h2>
         <div class="contact-wrapper">
-          <p class="contact-wrapper__text">Michael Da - mda@uwaterloo.ca</p>
-          <a href="https://www.linkedin.com/in/da-michael/" class="cta-btn cta-btn--resume">Connect with me!</a>
+          <p class="contact-wrapper__text">Michael Da &mdash; mda@uwaterloo.ca</p>
+          <a href="https://www.linkedin.com/in/da-michael/" class="cta-btn cta-btn--resume">Connect with me</a>
         </div>
       </div>
     </section>
-    <!-- END Contact Section -->
+    <!-- /END Contact Section -->
 
-    <!-- Footer Section -->
+    <!-- Footer -->
     <footer class="footer">
       <div class="container">
         <a href="#hero" class="back-to-top" aria-label="go back to top">
           <i class="fa fa-angle-up fa-2x" aria-hidden="true"></i>
         </a>
         <div class="social-links">
-          <a
-            href="https://x.com/damichael22"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="twitter"
-          >
+          <a href="https://x.com/damichael22" target="_blank" rel="noopener noreferrer" aria-label="twitter">
             <i class="fa-brands fa-twitter"></i>
           </a>
-
-          <a
-            href="https://www.linkedin.com/in/da-michael/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="linkedin"
-          >
+          <a href="https://www.linkedin.com/in/da-michael/" target="_blank" rel="noopener noreferrer" aria-label="linkedin">
             <i class="fa-brands fa-linkedin"></i>
           </a>
-          <a
-            href="https://github.com/mikeyd22"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="github"
-          >
+          <a href="https://github.com/mikeyd22" target="_blank" rel="noopener noreferrer" aria-label="github">
             <i class="fa-brands fa-github"></i>
           </a>
         </div>
         <hr />
         <p class="footer__text">
-          &copy; <span id="year"></span> 
-          <a
-            href="https://github.com/AnilSeervi"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Michael Da</a
-          >
+          &copy; <span id="year"></span>
+          <a href="https://github.com/mikeyd22" target="_blank" rel="noopener noreferrer">Michael Da</a>
         </p>
       </div>
     </footer>
-    <!-- END Footer Section -->
+    <!-- /END Footer -->
 
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
+
+    <!-- Nav toggle -->
     <script>
       (function () {
-        var toggle = document.getElementById("nav-menu-toggle");
+        var toggle   = document.getElementById("nav-menu-toggle");
         var dropdown = document.getElementById("nav-menu-dropdown");
         if (!toggle || !dropdown) return;
         function openMenu() {
@@ -358,7 +280,15 @@ I'm eager to collaborate on innovative projects, contribute to groundbreaking re
         });
       })();
     </script>
+
+    <!-- Particle network -->
+    <script src="./javascript/particles.js"></script>
+
+    <!-- Typewriter -->
+    <script src="./javascript/typewriter.js"></script>
+
+    <!-- Tilt (only on project images — now used on cards optionally) -->
     <script src="./javascript/vanilla-tilt.min.js"></script>
-    <script type="text/javascript" src="./javascript/valtilt.js"></script>
+    <script src="./javascript/valtilt.js"></script>
   </body>
 </html>

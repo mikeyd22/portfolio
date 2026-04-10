@@ -1,13 +1,22 @@
 // COLORS
-$primary-color: #36d1dc;
-$secondary-color: #5b86e5;
-$font-family: "Montserrat", sans-serif;
+$dark-bg: #080c14;
+$surface: #0d1520;
+$card-bg: rgba(13, 21, 40, 0.85);
 
-$light-white: #e5e5e5;
+$primary-color: #14b8a6;    // teal
+$secondary-color: #f59e0b;  // gold
+
+$text-primary: #e2e8f0;
+$text-muted: #94a3b8;
+$border-color: rgba(20, 184, 166, 0.15);
+
 $white-color: #ffffff;
-$dark-grey: #333333;
+$dark-grey: #050810;
+$dark-blue-text: #e2e8f0;
 
-$dark-blue-text: #272341; // For headings
+// FONTS
+$font-display: 'Space Grotesk', 'Montserrat', sans-serif;
+$font-family: 'Montserrat', sans-serif;
 
 // FONT SIZE
 $default-font-size: 1.6rem;

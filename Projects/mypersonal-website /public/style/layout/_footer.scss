@@ -1,14 +1,18 @@
 .footer {
-  background-color: $dark-grey;
-  padding: 4.8rem 0;
+  background: $dark-grey;
+  padding: 5rem 0;
+  border-top: 1px solid $border-color;
+
   &__text {
     font-size: 1.3rem;
-    color: darken($white-color, 30%);
+    color: $text-muted;
+
     a {
       font-size: 1.3rem;
-      color: darken($white-color, 25%);
-      transition: all 0.2s ease-in-out;
+      color: $text-muted;
+      transition: color 0.2s ease-in-out;
       display: inline-block;
+
       &:hover,
       &:active {
         color: $primary-color;
@@ -16,11 +20,11 @@
     }
   }
 
-  & hr {
-    margin: 1rem auto;
+  hr {
+    margin: 1.5rem auto;
     border: 0;
     width: 50%;
-    border-top: 2px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(20, 184, 166, 0.12);
   }
 }
 
@@ -29,42 +33,42 @@
   justify-content: center;
 
   a {
-    font-size: 3rem;
+    font-size: 2.4rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: $white-color;
-    width: 5rem;
-    height: 5rem;
-    margin: $default-font-size $default-font-size;
+    align-items: center;
+    color: $text-muted;
+    width: 4.8rem;
+    height: 4.8rem;
+    margin: $default-font-size;
     transition: all ease 0.2s;
+    border: 1px solid transparent;
+    border-radius: 8px;
+
     i {
       transition: all ease-in-out 0.2s;
     }
+
     &:hover {
-      transform: scale(1.1) translateY(-2px);
-      .fa-twitter {
-        color: #00acee;
-      }
-      .fa-instagram {
-        color: #c13584;
-      }
-      .fa-linkedin {
-        color: #4875b4;
-      }
-      .fa-codepen {
-        color: #212121;
-      }
+      transform: translateY(-3px);
+      border-color: $border-color;
+      background: rgba(20, 184, 166, 0.06);
+
+      .fa-twitter  { color: #1da1f2; }
+      .fa-linkedin { color: $primary-color; }
+      .fa-github   { color: $secondary-color; }
     }
   }
 }
 
 .back-to-top i {
-  color: $white-color;
+  color: $text-muted;
   margin: 1rem 0 $default-font-size;
   transition: all 200ms ease;
 
   &:hover {
-    transform: translateY(-2px);
+    color: $primary-color;
+    transform: translateY(-3px);
   }
 }
