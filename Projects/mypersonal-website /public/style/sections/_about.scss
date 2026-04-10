@@ -4,6 +4,13 @@
   padding: 10rem 0;
   position: relative;
   border-radius: 50% 50% 0 0 / 60px 60px 0 0;
+  overflow: hidden;
+
+  // Wireframe globe is an inline SVG (.about-globe) in the HTML
+  .container {
+    position: relative;
+    z-index: 1;
+  }
 
   .section-title {
     color: $text-primary;
