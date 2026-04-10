@@ -443,8 +443,9 @@ section .row span { margin-top: 2rem; }
 
 .project-card__img {
   width: 100%;
-  height: 210px;
-  object-fit: cover;
+  height: 230px;
+  object-fit: contain;
+  background: #111c2e;
   display: block;
   transition: transform 0.45s ease;
 }
